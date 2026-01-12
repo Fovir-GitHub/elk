@@ -4,7 +4,7 @@ on:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
   pull_request:
     branches:
       - main
@@ -86,9 +86,9 @@ jobs:
       - name: Create and push manifest list
         id: push
         env:
-          AMD64_IMAGE: ghcr.io/${{ github.repository }}:${{ steps.meta.outputs.version }}-amd64
-          ARM64_IMAGE: ghcr.io/${{ github.repository }}:${{ steps.meta.outputs.version }}-arm64
-          IMAGE: ghcr.io/${{ github.repository }}:${{ steps.meta.outputs.version }}
+          AMD64_IMAGE: ghcr.io/fovir-github/elk:${{ steps.meta.outputs.version }}-amd64
+          ARM64_IMAGE: ghcr.io/fovir-github/elk:${{ steps.meta.outputs.version }}-arm64
+          IMAGE: ghcr.io/fovir-github/elk:${{ steps.meta.outputs.version }}
           TAGS: ${{ steps.meta.outputs.tags }}
         run: |
           echo "$TAGS" | xargs -I {} \
